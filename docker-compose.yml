@@ -1,0 +1,12 @@
+---
+  version: '2'
+
+  services:
+    innotest:
+      build: .
+      volumes:
+        - ./:/usr/local/app:rw # mount source code
+      ports:
+        - 8080:8080
+      environment:
+        PYTHONUNBUFFERED: 1

@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    AfterUber Car Order
+{% endblock title %}
+
+{% block page_title %}
+    <div class="row">
+      <div class="col-md-12 col-xs-12">
+          <h1>AfterUber Car Order</h1>
+      </div>
+    </div>
+{% endblock page_title %}
+
+{% block body %}
+<form id="car-order-form" method="GET">
+    <label for="from">From:</label>
+    <input type="text" name="from" id="from" />
+    <label for="to">To:</label>
+    <input type="text" name="to" id="to" />
+    <input type="submit" name="submit" id="submit" class="btn btn-success"
+        value="Get Price" />
+</form>
+<hr />
+<div id="result"></div>
+{% endblock body %}
+
+{% block tail %}
+    <script type="text/javascript">
+        var getPriceUrl = '{{ request.app.router['price'].url() }}';
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfGY2rKekdsFeLAWwVWUGeIzExLJI7d_M"></script>
+    <script type="text/javascript" src="{{ request.app.router['static'].url(filename='js/app.js') }}" ></script>
+{% endblock tail %}
+
